@@ -1,0 +1,14 @@
+
+<div *ngIf="categories">
+
+  <div class="dropdown" >
+    <a class="dropdown-toggle btn" (click)="openDialog()"> All Categories </a>
+  </div>
+
+  <a
+    *ngFor="let category of categories"
+    routerLink="/category/{{ category.name }}"
+  >
+    {{ category.name }}
+  </a>
+</div>

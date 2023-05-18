@@ -1,0 +1,38 @@
+<button class="btn close-button" (click)="onClose()">
+  <span aria-hidden="true">&times;</span>
+</button>
+
+<!-- <div class="container my-5 mx-2">
+  <div class="row">
+    <div class="col" *ngFor="let category of categories">
+      <h3>
+        <strong>{{ category.name }}</strong>
+      </h3>
+      <li>
+        <div *ngFor="let subcategory of subcategories">
+          <ng-container
+            *ngIf="subcategory.parent_category_name.includes(category.name)"
+          >
+            <p routerLink="/subcategory/{{ subcategory.name }}">
+              {{ subcategory.name }}
+            </p>
+          </ng-container>
+        </div>
+      </li>
+    </div>
+  </div>
+</div> -->
+
+<div class="container my-5 mx-2">
+  <div class="row">
+    <div class="col-sm">
+      <li>
+        <div *ngFor="let subcategory of subcategories">
+          <p routerLink="/subcategory/{{ subcategory.name }}">
+            {{ subcategory.name }}
+          </p>
+        </div>
+      </li>
+    </div>
+  </div>
+</div>

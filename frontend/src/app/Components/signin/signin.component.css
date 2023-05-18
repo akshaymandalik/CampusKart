@@ -1,0 +1,44 @@
+ .close-button {
+   position: absolute;
+   right: 10px;
+   top: 5px;
+ }
+
+ .close-button span {
+   height: 20px;
+   width: 20px;
+ }
+
+ .close-button:hover {
+   color: brown;
+ }
+
+ .btn-login {
+   font-size: 0.9rem;
+   letter-spacing: 0.05rem;
+   padding: 0.75rem 1rem;
+ }
+
+ .btn-google {
+   color: white !important;
+   background-color: #ea4335;
+ }
+
+ .btn-facebook {
+   color: white !important;
+   background-color: #3b5998;
+ }
+
+ .error-list {
+   color: red;
+   margin: -14px 6px 16px;
+ }
+
+ .d-flex {
+   font-size: medium;
+ }
+
+ .d-flex a:hover {
+   color: blue;
+   text-decoration: underline;
+ }

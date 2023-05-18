@@ -1,0 +1,91 @@
+<app-not-found
+[Visible]="!watchlist ||!watchlist.items.length"
+notFoundMessage="WishList Page is Empty!"
+resetLinkText="Go To HomePage"
+
+></app-not-found>
+<section *ngIf="watchlist && watchlist.items.length"class="bg-light my-5">
+  <div class="container">
+    <div class="row">
+      <!-- cart -->
+      <div class="col-lg-9">
+        <div class="card border shadow-0">
+          <div class="m-4">
+            <h4 class="card-title mb-4">Your WishList</h4>
+            <div
+              class="row gy-4 mb-4"
+              *ngFor="let watchlistItem of watchlist.items"
+            >
+              <div class="col-lg-5">
+                <div class="me-lg-5">
+                  <div class="d-flex">
+                    <img
+                      [src]="watchlistItem.product.imageUrl"
+                      class="border rounded me-3"
+                      style="width: 96px; height: 96px"
+                    />
+                    <div class="">
+                      <strong class="text-success text-uppercase"><a routerLink="/product/{{ watchlistItem.product.id }}"
+ class="nav-link"
+                        >{{watchlistItem.product.name}}</a
+                      ></strong>
+                      <p class="category" routerLink="/category/{{ watchlistItem.product.category}}">{{watchlistItem.product.category}}</p>
+                    </div>
+
+                  </div>
+                </div>
+              </div>
+              <div
+                class="col-lg-2 col-sm-6 col-6 d-flex flex-row flex-lg-column flex-xl-row text-nowrap"
+              >
+
+                <div class="">
+                  <h4 class="text-dark text-center">Price</h4>
+                  <small class="h6"><i class="fa fa-inr"></i>{{watchlistItem.product.price}}</small> <br />
+                </div>
+              </div>
+              <div
+                class="col-lg col-sm-6 d-flex justify-content-sm-center justify-content-md-start justify-content-lg-center justify-content-xl-end mb-2"
+              >
+                <div class="float-md-end">
+                  <button
+                    href="#"
+                    class="btn btn-light border text-danger icon-hover-danger" (click)="removeFromWatchList(watchlistItem)"
+                  >
+                    Remove</button
+                  >
+                </div>
+              </div>
+            </div>
+          </div>
+
+
+        </div>
+      </div>
+      <!-- cart -->
+      <!-- summary -->
+      <div class="col-lg-3">
+
+        <div class="card shadow-0 border">
+          <div class="card-body">
+            <div class="d-flex justify-content-between">
+              <p class="mb-2 text-center">Total Price</p>
+              <p class="mb-2 text-center"><i class="fa fa-inr"></i>{{watchlist.totalPrice}}</p>
+            </div>
+            <div class=" d-flex justify-content-between">
+              <p class="mb-2 ">Total Count</p>
+              <p class="mb-2">{{watchlist.totalCount}}</p>
+            </div>
+            <div class="mt-3">
+
+              <a href="#" class="btn btn-light w-100 border mt-2">
+                Back to shop
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
+      <!-- summary -->
+    </div>
+  </div>
+</section>

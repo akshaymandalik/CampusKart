@@ -1,0 +1,177 @@
+<div class="container border rounded-5">
+  <div class="row">
+    <div class="col-lg-9 col-md-7 col-lg-4 mx-auto">
+      <div class="my-5">
+        <p class="text-center h1 fw-bold">Add Your Product</p>
+        <div class="card-body p-4 p-sm-5 form-group row">
+          <form [formGroup]="sellerForm" (ngSubmit)="addProduct()">
+            <div class="row mb-4">
+              <div class="col">
+                <input
+                  type="text"
+                  class="form-control"
+                  placeholder="Product Name"
+                  formControlName="pName"
+                />
+              </div>
+              <div class="col">
+                <input
+                  type="number"
+                  class="form-control"
+                  placeholder="Product Price"
+                  formControlName="pPrice"
+                />
+              </div>
+            </div>
+            <div class="row mb-4">
+              <div class="col">
+                <textarea
+                  type="text"
+                  class="form-control"
+                  placeholder="Product Description"
+                  formControlName="pDesc"
+                ></textarea>
+              </div>
+            </div>
+            <div class="row mb-4" *ngIf="categories">
+              <h3>Select Category:</h3>
+              <div class="col" *ngFor="let category of categories">
+                <div class="form-check form-check-inline">
+                  <input
+                    class="form-check-input"
+                    type="radio"
+                    id="inlineRadio1"
+                    formControlName="pCat"
+                    [value]="category.name"
+                  />
+                  <label class="form-check-label" for="inlineRadio1">{{category.name}}</label>
+                </div>
+              </div>
+            </div>
+            <div class="row mb-4">
+              <div class="col">
+                <input
+                  type="text"
+                  class="form-control"
+                  id="subcategoryData"
+                  placeholder="Subcategories"
+                  formControlName="pSubCat"
+                />
+                <small style="color: rgb(147, 109, 14)"
+                  ><strong>Note: </strong
+                  ><em>Separate each Subcategory with Comma.</em></small
+                >
+              </div>
+            </div>
+
+            <div class="row mb-4">
+              <div class="col">
+                <input
+                  type="text"
+                  class="form-control"
+                  placeholder="Enter seller name"
+                  [value]="user.name"
+                />
+              </div>
+
+              <div class="col">
+                <input
+                  type="email"
+                  class="form-control"
+                  placeholder="Enter seller email"
+                  id="sellerEmailInput"
+                  [value]="user.email"
+                />
+              </div>
+            </div>
+            <div class="row mb-4">
+              <div class="col">
+                <input
+                  type="address"
+                  class="form-control"
+                  placeholder="Enter seller address"
+                  id="sellerAddressInput"
+                  [value]="user.address"
+                />
+              </div>
+
+              <div class="col">
+                <div class="d-flex">
+                  <input
+                    type="tel"
+                    id="countryCodeInput"
+                    class="form-control countryCode"
+                    value="+91"
+                    readonly
+                  />
+                  <input
+                    type="tel"
+                    class="form-control mobileNumber"
+                    id="mobileNumberInput"
+                    placeholder="Enter your mobile number"
+                    formControlName="pMobile"
+                  />
+                </div>
+              </div>
+            </div>
+            <hr />
+            <h2 class="text-center" style="color: darkcyan">
+              Select 4 Images of Product
+            </h2>
+
+            <div class="row mb-4">
+              <div class="col">
+                <input
+                  type="file"
+                  class="form-control"
+                  id="imageUrlInput1"
+                  placeholder="Image1"
+                  formControlName="pImage1"
+                />
+              </div>
+
+              <div class="col">
+                <input
+                  type="file"
+                  class="form-control"
+                  id="imageUrlInput2"
+                  placeholder="Image2"
+                  formControlName="pImage2"
+                />
+              </div>
+            </div>
+            <div class="row mb-4">
+              <div class="col">
+                <input
+                  type="file"
+                  class="form-control"
+                  id="imageUrlInput3"
+                  placeholder="Image3"
+                  formControlName="pImage3"
+                />
+              </div>
+
+              <div class="col">
+                <input
+                  type="file"
+                  class="form-control"
+                  id="imageUrlInput4"
+                  placeholder="Image4"
+                  formControlName="pImage4"
+                />
+              </div>
+            </div>
+            <div class="d-grid mt-4">
+              <button
+                class="btn btn-primary btn-login text-uppercase fw-bold"
+                type="submit"
+              >
+                Add Product
+              </button>
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,136 @@
+<div class="container border rounded-5">
+  <div class="row">
+    <div class="col-sm-9 col-md-7 col-lg-4 mx-auto">
+      <div class="my-5">
+        <div class="card-body p-4 p-sm-5">
+          <p class="text-center h1 fw-bold mb-5 mx-1 mx-md-4 mt-4">Sign up</p>
+          <form [formGroup]="registerForm" (ngSubmit)="onsubmit()">
+            <div class="form-floating mb-3">
+              <input
+                type="name"
+                class="form-control"
+                id="floatingInput1"
+                placeholder="name"
+                formControlName="name"
+              />
+              <label for="floatingInput1">Name</label>
+            </div>
+            <div class="error-list" *ngIf="fc.name?.invalid && isSubmitted">
+              <small *ngIf="fc.name?.errors?.minlength"
+                ><i class="fa fa-exclamation-triangle" aria-hidden="true"></i>
+                Name must be at least 6 characters long.</small
+              >
+              <small *ngIf="fc.name?.errors?.required"
+                ><i class="fa fa-exclamation-triangle" aria-hidden="true"></i>
+                Name should not be empty!!</small
+              >
+            </div>
+            <div class="form-floating mb-3">
+              <input
+                type="email"
+                class="form-control"
+                id="floatingInput2"
+                placeholder="name@example.com"
+                formControlName="email"
+              />
+              <label for="floatingInput2">Email address</label>
+            </div>
+            <div class="error-list" *ngIf="fc.email?.errors && isSubmitted">
+              <small *ngIf="fc.email?.errors?.required"
+                ><i class="fa fa-exclamation-triangle" aria-hidden="true"></i>
+                Email should not be empty!!</small
+              >
+              <small *ngIf="fc.email?.errors?.email"
+                ><i class="fa fa-exclamation-triangle" aria-hidden="true"></i>
+                Enter Valid Email!!</small
+              >
+              <small *ngIf="fc.email?.errors?.pattern"
+                ><i class="fa fa-exclamation-triangle" aria-hidden="true"></i>
+                Please Provide Your College Email!</small
+              >
+            </div>
+            <div class="form-floating mb-3">
+              <input
+                type="password"
+                class="form-control"
+                id="floatingPassword1"
+                placeholder="Password"
+                formControlName="password"
+              />
+              <label for="floatingPassword1">Password</label>
+            </div>
+            <div class="error-list" *ngIf="fc.password?.errors && isSubmitted">
+              <small *ngIf="fc.password?.errors?.minlength"
+                ><i class="fa fa-exclamation-triangle" aria-hidden="true"></i>
+                Password must be at least 5 characters long.</small
+              >
+              <small *ngIf="fc.password?.errors?.required"
+                ><i class="fa fa-exclamation-triangle" aria-hidden="true"></i>
+                Password should not be empty!!</small
+              >
+            </div>
+            <div class="form-floating mb-3">
+              <input
+                type="password"
+                class="form-control"
+                id="floatingPassword2"
+                placeholder="Password"
+                formControlName="confirmPassword"
+              />
+              <label for="floatingPassword2"> Confirm Password</label>
+            </div>
+            <div
+              class="error-list"
+              *ngIf="fc.confirmPassword?.errors && isSubmitted"
+            >
+              <small *ngIf="fc.confirmPassword?.errors?.notMatch"
+                ><i class="fa fa-exclamation-triangle" aria-hidden="true"></i>
+                Password does not match!!</small
+              >
+              <small *ngIf="fc.confirmPassword?.errors?.required"
+                ><i class="fa fa-exclamation-triangle" aria-hidden="true"></i>
+                Confirm Password should not be empty!!</small
+              >
+            </div>
+
+            <div class="form-floating mb-3">
+              <input
+                type="text-area"
+                class="form-control"
+                id="floatingInput3"
+                placeholder="address"
+                formControlName="address"
+              />
+              <label for="floatingInput3">Address</label>
+            </div>
+
+            <div class="form-floating mb-3">
+              <button class="btn btn-primary btn-login text-uppercase">
+                Create Account
+              </button>
+            </div>
+
+            <div class="d-flex text-center my-4">
+              <label>Already have Account?&nbsp;</label
+              ><a
+                class="nav-link text-center"
+                routerLink="/signin"
+                [queryParams]="{returnUrl:returnUrl}"
+                >Login Here</a
+              >
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+    <div
+      class="col-md-10 col-lg-6 col-xl-7 d-flex align-items-center order-1 order-lg-2"
+    >
+      <img
+        src="https://mdbcdn.b-cdn.net/img/Photos/new-templates/bootstrap-registration/draw1.webp"
+        class="img-fluid"
+        alt="Sample image"
+      />
+    </div>
+  </div>
+</div>

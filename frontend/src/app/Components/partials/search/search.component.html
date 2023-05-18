@@ -1,0 +1,14 @@
+<form  class="d-flex" role="search" >
+        <input
+          class="form-control"
+          id="searchBox"
+          type="search"
+          placeholder="Find Calci,Books and more....."
+          aria-label="Search"
+          #s
+          (keyup.enter)="search(s.value)"
+          [value]="searchTerm"
+        />
+        <button class="btn btn-success" type="submit" (click)="search(s.value)"><i class="fa fa-search" aria-hidden="true"></i>
+</button>
+</form>

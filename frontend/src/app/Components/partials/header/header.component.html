@@ -1,0 +1,36 @@
+  <nav class="navbar navbar-dark bg-dark">
+    <div class="container py-2">
+      <a
+        class="navbar-brand"
+        [routerLink]="['/']"
+        routerLinkActive="router-link-active"
+        >CampusKart</a
+      >
+      <app-search class="search"></app-search>
+
+      <ul>
+
+        <li *ngIf="!isAuth">
+          <button routerLink="/signin" class="btn btn-outline-light my-2 login">
+            Sign In
+          </button>
+        </li>
+
+
+        <li *ngIf="isAuth" class="menu-container" >
+          <button routerLink="/dashboard" class="btn btn-outline-success my-2 profile">{{user.name}}</button>
+          <div class="menu">
+            <a routerLink="/profile">Profile</a>
+            <a routerLink="/sell-product">Sell Product</a>
+            <a (click)="logout()">Logout</a>
+          </div>
+        </li>
+        <li>
+          <button class="btn btn-outline-danger cart my-2" routerLink="/watchlist">
+            <i class="fa fa-heart" aria-hidden="true"></i>
+          </button>
+        </li>
+      </ul>
+    </div>
+  </nav>
+

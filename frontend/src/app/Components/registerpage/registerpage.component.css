@@ -1,0 +1,13 @@
+.error-list {
+  color: red;
+  margin: -14px 6px 16px;
+}
+
+.d-flex {
+  font-size: medium;
+}
+
+.d-flex a:hover {
+  color: blue;
+  text-decoration: underline;
+}
